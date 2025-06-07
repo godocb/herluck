@@ -1,0 +1,13 @@
+[Unit]
+Description=Script Python terlucklenerd.py au démarrage
+
+[Service]
+ExecStart=/usr/bin/python3 /home/HerluckPi/terlucklenerd.py
+WorkingDirectory=/home/HerluckPi
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=HerluckPi
+
+[Install]
+WantedBy=multi-user.target

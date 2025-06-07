@@ -17,7 +17,8 @@ intents.messages = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 # Configuration Gemini
-genai.configure(api_key="YOUR_API_KEY")
+genai_api_key = os.getenv('GEMINI_API_KEY')
+genai.configure(api_key=genai_api_key)
 model = genai.GenerativeModel('gemini-2.0-flash')
 
 # Dictionnaire pour stocker l'historique des conversations par utilisateur
@@ -384,4 +385,4 @@ async def clear(ctx):
         await ctx.send(f"Fichtre ! Je n'ai pas pu nettoyer le salon : {str(e)}")
 
 # Remplacez "YOUR_TOKEN" par le jeton de votre bot Discord
-bot.run("YOUR_TOKEN")
+bot.run(DISCORD_TOKEN)
